@@ -1,0 +1,111 @@
+:root {
+  --rlw-padding-1: 4px;
+  --rlw-padding-2: 8px;
+  --rlw-text-color: #515055;
+  --rlw-feedback-border-color: #dde0e2;
+  --rlw-pin-color-1: #515055;
+  --rlw-pin-color-2: white;
+  --rlw-pin-border-radius: 12px;
+}
+.leaflet-bottom .leaflet-right {
+  display: none;
+}
+/* Button and texts color */
+.leaflet-routing-alt,
+.leaflet-bar a {
+  color: var(--rlw-pin-color-1);
+}
+.leaflet-routing-alt {
+  padding: var(--rlw-padding-1) var(--rlw-padding-2);
+  background-color: white;
+}
+.leaflet-routing-alt-minimized,
+.leaflet-routing-alt table {
+  display: none;
+}
+
+.c-map {
+  height: 100vh;
+}
+.c-map-summary--hidden .leaflet-routing-container-hide {
+  display: none;
+}
+
+.c-map-feedback-wrapper {
+  color: var(--rlw-text-color);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--rlw-feedback-border-color);
+  margin: 0;
+  height: 100%;
+}
+
+.c-map-pin:before {
+  width: 6px;
+  height: 6px;
+  content: '';
+  bottom: 10px;
+  left: -7px;
+  border-radius: var(--rlw-pin-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border: 4px solid var(--rlw-pin-color-1);
+}
+.c-map-pin:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  bottom: -7px;
+  left: -5px;
+  border: 5px solid transparent;
+  border-top: 14px solid var(--rlw-pin-color-1);
+  right: 0;
+  margin: 0 auto;
+}
+
+.c-map-pin-empty {
+  transform: translate(-50%, 0);
+  left: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  background-color: var(--rlw-pin-color-2);
+  border-radius: var(--rlw-pin-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: default;
+  border: 5px solid var(--rlw-pin-color-1);
+}
+
+.c-map-pin-glyph {
+  transform: translate(-50%, -150%);
+  left: 50%;
+  min-width: 20px;
+  min-height: 20px;
+  background-color: var(--rlw-pin-color-1);
+  color: var(--rlw-pin-color-2);
+  border-radius: var(--rlw-pin-border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.c-map-pin-text {
+  transform: translate(-50%, -150%);
+  padding: 0 var(--rlw-padding-2);
+  min-height: auto;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.c-map-pin-html {
+  transform: translate(-50%, -150%);
+  position: absolute;
+  z-index: 1;
+}

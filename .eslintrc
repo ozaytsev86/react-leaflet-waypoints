@@ -1,0 +1,49 @@
+{
+  "parser": "babel-eslint",
+  "env":
+  {
+    "node": true,
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:testing-library/recommended",
+    "plugin:testing-library/react"
+  ],
+  "plugins": [
+    "html",
+    "import",
+    "react-hooks",
+    "jsx-a11y",
+    "testing-library"
+  ],
+  "rules": {
+    "max-len": ["error", {
+      "code": 180,
+      "ignoreComments": true,
+      "ignoreTrailingComments": true,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreRegExpLiterals": true
+    }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "comma-dangle": ["error", "only-multiline"],
+    "object-curly-spacing": ["error", "never"],
+    "react/prop-types": 0,
+    "no-prototype-builtins": 0,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
