@@ -30,7 +30,8 @@ export const Custom = newStory({
         glyph: {
           html: '<span style="background-color: #f15b6c; padding: 4px; color: #fefdef; white-space: nowrap; border-radius: 8px 0; border: 2px solid #605f64">Second Stop</span>',
         }
-      }, {
+      },
+      {
         lat: '44.7576862',
         lng: '1',
         glyph: {
@@ -69,8 +70,9 @@ export const Minimal = () => (
 export const WithoutFitRoutes = () => (
   <Map
     fitRoutes={false}
+    testId="test"
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-    waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {icon: 'custom-icon custom-icon-home'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {icon: 'custom-icon custom-icon-marker'}}]}
+    waypoints={[{lat: '40.4381311', lng: '-3.8196196'}]}
   />
 );
 export const WithIcon = () => (
@@ -142,18 +144,11 @@ export const WithSummaryTemplate = () => (
   />
 );
 
-export const DefaultLoading = () => <Map loading waypoints={[{lat: '40.4381311', lng: '-3.8196196'}]}/>;
-export const WithLoadingText = () => (
-  <Map
-    loading
-    waypoints={[{lat: '40.4381311', lng: '-3.8196196'}]}
-    loadingComponent="The map is loading..."
-  />
-);
+export const DefaultLoading = () => <Map loading />;
+export const WithLoadingText = () => <Map loading loadingComponent="The map is loading..." />;
 export const WithLoadingComponent = () => (
   <Map
     loading
-    waypoints={[{lat: '40.4381311', lng: '-3.8196196'}]}
     loadingComponent={<div className="custom-loader" />}
   />
 );

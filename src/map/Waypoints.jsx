@@ -4,38 +4,9 @@ import L from 'leaflet';
 import {useLeafletContext} from '@react-leaflet/core';
 import 'leaflet-routing-machine';
 
-L.Icon.Glyph = L.Icon.extend({
-  createIcon: function () {
-    const wrapper = L.DomUtil.create('div', `c-map-pin ${this.options.glyph?.className}`);
-
-    if (this.options.glyph) {
-      const glyph = this.options.glyph;
-
-      if (glyph.icon) {
-        L.DomUtil.create('span', `c-map-pin-glyph ${glyph.icon}`, wrapper);
-      } else if (glyph.text) {
-        const content = L.DomUtil.create('span', 'c-map-pin-glyph c-map-pin-text', wrapper);
-        content.innerText = glyph.text;
-        wrapper.appendChild(content);
-      } else if (glyph.html) {
-        const htmlWrapper = L.DomUtil.create('div', 'c-map-pin-html');
-        const content = new DOMParser().parseFromString(glyph.html, 'text/html').body.firstChild;
-        htmlWrapper.appendChild(content);
-        wrapper.appendChild(htmlWrapper);
-      } else {
-        L.DomUtil.create('span', 'c-map-pin-empty', wrapper);
-      }
-    }
-
-    return wrapper;
-  }
-});
-
-L.icon.glyph = function (options) {
-  return new L.Icon.Glyph(options);
-};
-
 const propTypes = {
+  /** Id for test purposes*/
+  testId: PropTypes.string,
   /** Coordinates to show markers on the map */
   waypoints: PropTypes.arrayOf(
     PropTypes.shape({
@@ -67,6 +38,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  testId: 'component',
   fitRoutes: true,
   summaryTemplate: '',
   lineOptions: {
@@ -79,12 +51,45 @@ const defaultProps = {
 };
 
 export const Waypoints = ({
+                            testId,
                             waypoints,
                             summaryTemplate,
                             lineOptions,
                             fitRoutes,
 }) => {
   const context = useLeafletContext();
+
+  L.Icon.Glyph = L.Icon.extend({
+    createIcon: function () {
+      const wrapper = L.DomUtil.create('div', `c-map-pin ${this.options.glyph?.className || ''}`);
+      wrapper.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}`);
+
+      if (this.options.glyph) {
+        const glyph = this.options.glyph;
+
+        if (glyph.icon) {
+          L.DomUtil.create('span', `c-map-pin-glyph ${glyph.icon}`, wrapper);
+        } else if (glyph.text) {
+          const content = L.DomUtil.create('span', 'c-map-pin-glyph c-map-pin-text', wrapper);
+          content.innerText = glyph.text;
+          wrapper.appendChild(content);
+        } else if (glyph.html) {
+          const htmlWrapper = L.DomUtil.create('div', 'c-map-pin-html');
+          const content = new DOMParser().parseFromString(glyph.html, 'text/html').body.firstChild;
+          htmlWrapper.appendChild(content);
+          wrapper.appendChild(htmlWrapper);
+        } else {
+          L.DomUtil.create('span', 'c-map-pin-empty', wrapper);
+        }
+      }
+
+      return wrapper;
+    }
+  });
+
+  L.icon.glyph = function (options) {
+    return new L.Icon.Glyph(options);
+  };
 
   const control = L.Routing.control({
     showAlternatives: false,
@@ -96,7 +101,7 @@ export const Waypoints = ({
     plan: L.Routing.plan(waypoints, {
       createMarker: function (i, wp) {
         return L.marker(wp.latLng, {
-          icon: L.icon.glyph({glyph: waypoints[i].glyph})
+          icon: L.icon.glyph({glyph: waypoints[i].glyph, index: i})
         });
       },
     }),

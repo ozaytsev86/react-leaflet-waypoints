@@ -50,7 +50,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  testId: 'map-component',
+  testId: 'component',
   layerUrl: '',
   className: '',
   loading: false,
@@ -74,7 +74,7 @@ export const Map = ({
   if(loading) {
     return (
       typeof loadingComponent === 'string'
-        ? <p className="c-map-feedback-wrapper">{loadingComponent}</p>
+        ? <p data-testid={`${testId}-loading`} className="c-map-feedback-wrapper">{loadingComponent}</p>
         : loadingComponent
     );
   }
@@ -88,11 +88,11 @@ export const Map = ({
           center={[waypoints[0].lat, waypoints[0].lng]}
         >
           <TileLayer url={layerUrl} />
-          <Waypoints waypoints={waypoints} summaryTemplate={summaryTemplate} {...rest}/>
+          <Waypoints testId={testId} waypoints={waypoints} summaryTemplate={summaryTemplate} {...rest}/>
         </MapContainer>
       ) : (
         typeof noDataComponent === 'string'
-          ? <p className="c-map-feedback-wrapper">{noDataComponent}</p>
+          ? <p data-testid={`${testId}-no-data`} className="c-map-feedback-wrapper">{noDataComponent}</p>
           : noDataComponent
       )}
     </div>

@@ -1,9 +1,12 @@
 /* eslint-disable */
 
 // Expect
-const chai = require('chai');
-global.expect = chai.expect;
+const extendExpectMatchers = require('@testing-library/jest-dom/dist/matchers');
+const expect = require('expect');
 
+// Extend our expect with @testing-library/jest-dom
+expect.extend(extendExpectMatchers);
+global.expect = expect;
 
 // JSDom
 const jsdom = require('jsdom');
@@ -24,8 +27,3 @@ global.window.requestAnimationFrame = () => {
 global.window.cancelAnimationFrame = () => {
   throw new Error('cancelAnimationFrame is not supported in Node');
 };
-
-const RTL = require('@testing-library/react');
-RTL.configure({
-  testIdAttribute: 'data-elm-id'
-});
