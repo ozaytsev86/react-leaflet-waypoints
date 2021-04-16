@@ -60,7 +60,7 @@ const defaultProps = {
   summaryTemplate: '',
 };
 
-export const Map = ({
+const Map = ({
                       testId,
                       loading,
                       loadingComponent,
@@ -101,3 +101,5 @@ export const Map = ({
 
 Map.propTypes = propTypes;
 Map.defaultProps = defaultProps;
+
+export default Map;

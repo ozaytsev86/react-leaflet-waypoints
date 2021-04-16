@@ -2,7 +2,8 @@
   "name": "react-leaflet-waypoints",
   "version": "1.0.0",
   "description": "React library to show the waypoints on the Leaflet map",
-  "main": "index.js",
+  "main": "dist/react-leaflet-waypoints.js",
+  "module": "src/index.js",
   "keywords": [
     "react",
     "leaflet",
@@ -14,6 +15,7 @@
     "sb": "start-storybook --quiet -p 9002 -c .storybook --no-manager-cache",
     "prettify": "prettier --write src/",
     "dev": "webpack serve --progress --mode development",
+    "build": "webpack --mode production",
     "lint": "eslint src/**/*.jsx",
     "lint:fix": "eslint --fix src/**/*.jsx",
     "clear:jest-cache": "jest --clearCache",
@@ -39,6 +41,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-react-docgen": "^4.2.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.0",
     "eslint": "^7.23.0",
@@ -56,13 +59,15 @@
     "jsdom": "^16.5.2",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
+    "path": "^0.12.7",
     "postcss": "^8.2.9",
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "style-loader": "^2.0.0",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
     "leaflet": "^1.7.1",

@@ -1,1 +1,3 @@
-export {Map} from './map/Map';
+const {Map} = './map/Map';
+
+export {Map};
