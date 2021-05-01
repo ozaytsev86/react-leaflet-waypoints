@@ -61,16 +61,16 @@ const defaultProps = {
 };
 
 const Map = ({
-                      testId,
-                      loading,
-                      loadingComponent,
-                      className,
-                      waypoints,
-                      noDataComponent,
-                      layerUrl,
-                      summaryTemplate,
-                      ...rest
-                    }) => {
+              testId,
+              loading,
+              loadingComponent,
+              className,
+              waypoints,
+              noDataComponent,
+              layerUrl,
+              summaryTemplate,
+              ...rest
+            }) => {
   if(loading) {
     return (
       typeof loadingComponent === 'string'
@@ -102,4 +102,4 @@ const Map = ({
 Map.propTypes = propTypes;
 Map.defaultProps = defaultProps;
 
-export default Map;
+export {Map};

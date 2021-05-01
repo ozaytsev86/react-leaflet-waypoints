@@ -2,9 +2,9 @@
   "name": "react-leaflet-waypoints",
   "version": "1.0.0",
   "description": "React library to show the waypoints on the Leaflet map",
-  "main": "dist/react-leaflet-waypoints.js",
-  "module": "src/index.js",
+  "main": "build/index.js",
   "keywords": [
+    "react-component",
     "react",
     "leaflet",
     "waypoints"
@@ -16,6 +16,7 @@
     "prettify": "prettier --write src/",
     "dev": "webpack serve --progress --mode development",
     "build": "webpack --mode production",
+    "build:babel": "babel src --out-dir build --copy-files",
     "lint": "eslint src/**/*.jsx",
     "lint:fix": "eslint --fix src/**/*.jsx",
     "clear:jest-cache": "jest --clearCache",
@@ -24,6 +25,7 @@
     "test:coverage": "cross-env REPORTER=Min nyc --reporter=html mocha 'src/**/*.test.{js,jsx}' --exit"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.16",
     "@babel/core": "^7.13.14",
     "@babel/node": "^7.13.13",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -57,6 +59,8 @@
     "ignore-styles": "^5.0.1",
     "jest": "^26.6.3",
     "jsdom": "^16.5.2",
+    "leaflet": "^1.7.1",
+    "leaflet-routing-machine": "^3.2.12",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
     "path": "^0.12.7",
@@ -64,12 +68,15 @@
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-leaflet": "^3.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-node-externals": "^2.5.2"
   },
-  "dependencies": {
+  "peerDependencies": {
     "leaflet": "^1.7.1",
     "leaflet-routing-machine": "^3.2.12",
     "react": "^17.0.2",

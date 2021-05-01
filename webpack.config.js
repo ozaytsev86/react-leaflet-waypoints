@@ -29,6 +29,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.jsx'],
     modules: [
       path.join(__dirname, 'node_modules')
     ]
