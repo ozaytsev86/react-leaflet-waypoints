@@ -6,8 +6,8 @@ module.exports = {
   entry: './src/index.js',
   externals: [nodeExternals()],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'react-leaflet-waypoints.js',
+    path: path.resolve(__dirname, 'build'),
+    filename: 'index.js',
     library: {
       name: 'rlw',
       type: 'umd'
