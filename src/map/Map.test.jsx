@@ -1,6 +1,6 @@
-import {render, waitFor} from '../../tests/testing-library.helpers.js';
 import {Map} from './Map';
-import {screen} from '@testing-library/react';
+import {screen, waitFor, render} from '@testing-library/react';
+
 
 describe('Map', () => {
   const MockedComponent = () => <div data-testid="mocked-component">MockedComponent</div>;
@@ -46,14 +46,19 @@ describe('Map', () => {
   describe('should load', () => {
     it('1 waypoint', async () => {
       renderMapComponent({waypoints: [{lat: 1, lng: 1}]});
-      await waitFor(() => expect(screen.getByTestId('test-waypoint-1')).toBeInTheDocument());
+      await waitFor(() => expect(screen.getByTestId('test-waypoint-0')).toBeInTheDocument());
     });
-    xit('2 waypoints', async () => {
+    it('2 waypoints', async () => {
       renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}]});
+      expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
+      expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
+    });
+    it('3 waypoints', async () => {
+      renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}, {lat: 1.2, lng: 1.2}]});
+      expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
       expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
       expect(await screen.findByTestId('test-waypoint-2')).toBeInTheDocument();
     });
-    xit('3 waypoints', () => {});
     xit('waypoint with icon', () => {});
     xit('waypoint with text', () => {});
     xit('waypoint with html', () => {});

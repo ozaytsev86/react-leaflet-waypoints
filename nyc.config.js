@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-commonjs
 module.exports = {
   include: 'src/**/*.{js,jsx}',
   exclude: [

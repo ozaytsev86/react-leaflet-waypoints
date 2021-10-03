@@ -21,6 +21,8 @@ global.navigator = {
   userAgent: 'node.js',
   platform: ['Win']
 };
+location = {}; // avoids leaflet-routing-machine fail
+
 global.window.requestAnimationFrame = () => {
   throw new Error('requestAnimationFrame is not supported in Node');
 };
