@@ -10,7 +10,7 @@
     "waypoints"
   ],
   "author": "Olek Zaytsev",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "sb": "start-storybook --quiet -p 9002 -c .storybook --no-manager-cache",
     "prettify": "prettier --write src/",
