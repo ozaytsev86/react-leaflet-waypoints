@@ -1,4 +1,4 @@
-import {render} from '../../tests/testing-library.helpers.js';
+import {render, waitFor} from '../../tests/testing-library.helpers.js';
 import {Map} from './Map';
 import {screen} from '@testing-library/react';
 
@@ -45,21 +45,21 @@ describe('Map', () => {
 
   describe('should load', () => {
     it('1 waypoint', async () => {
-      // renderMapComponent({waypoints: [{lat: 1, lng: 1}]});
-      // await waitFor(() => expect(screen.getByTestId('test-waypoint-1')).toBeInTheDocument());
+      renderMapComponent({waypoints: [{lat: 1, lng: 1}]});
+      await waitFor(() => expect(screen.getByTestId('test-waypoint-1')).toBeInTheDocument());
     });
-    it('2 waypoints', async () => {
-      // renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}]});
-      // expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
-      // expect(await screen.findByTestId('test-waypoint-2')).toBeInTheDocument();
+    xit('2 waypoints', async () => {
+      renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}]});
+      expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
+      expect(await screen.findByTestId('test-waypoint-2')).toBeInTheDocument();
     });
-    it('3 waypoints', () => {});
-    it('waypoint with icon', () => {});
-    it('waypoint with text', () => {});
-    it('waypoint with html', () => {});
+    xit('3 waypoints', () => {});
+    xit('waypoint with icon', () => {});
+    xit('waypoint with text', () => {});
+    xit('waypoint with html', () => {});
   });
 
-  it('should show summaryTemplate', () => {});
-  it('should fit to routes', () => {});
-  it('should change line styles', () => {});
+  xit('should show summaryTemplate', () => {});
+  xit('should fit to routes', () => {});
+  xit('should change line styles', () => {});
 });
