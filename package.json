@@ -20,7 +20,6 @@
     "lint": "eslint src/**/*.jsx",
     "lint:fix": "eslint --fix src/**/*.jsx",
     "test": "mocha 'src/**/*.test.{js,jsx}' --exit",
-    "test:watch": "yarn test -- --watch",
     "test:coverage": "cross-env REPORTER=Min nyc --reporter=html mocha 'src/**/*.test.{js,jsx}' --exit"
   },
   "devDependencies": {

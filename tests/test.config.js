@@ -22,6 +22,7 @@ global.navigator = {
   platform: ['Win']
 };
 location = {}; // avoids leaflet-routing-machine fail
+global.DOMParser = window.DOMParser
 
 global.window.requestAnimationFrame = () => {
   throw new Error('requestAnimationFrame is not supported in Node');

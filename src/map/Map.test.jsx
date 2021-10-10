@@ -1,5 +1,5 @@
 import {Map} from './Map';
-import {screen, waitFor, render} from '@testing-library/react';
+import {screen, waitFor, render, within} from '@testing-library/react';
 
 
 describe('Map', () => {
@@ -41,30 +41,57 @@ describe('Map', () => {
     expect(screen.getByTestId('test-map')).toHaveClass('mocked-class');
   });
 
-  it('should load layer when receive layerUrl', () => {});
+  xit('should load layer when receive layerUrl', () => {});
 
   describe('should load', () => {
     it('1 waypoint', async () => {
       renderMapComponent({waypoints: [{lat: 1, lng: 1}]});
-      await waitFor(() => expect(screen.getByTestId('test-waypoint-0')).toBeInTheDocument());
+      expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-0')).toHaveClass('c-map-pin');
     });
     it('2 waypoints', async () => {
       renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}]});
       expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
-      expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-1')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-0')).toHaveClass('c-map-pin');
+      expect(screen.getByTestId('test-waypoint-1')).toHaveClass('c-map-pin');
     });
     it('3 waypoints', async () => {
       renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}, {lat: 1.2, lng: 1.2}]});
       expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
-      expect(await screen.findByTestId('test-waypoint-1')).toBeInTheDocument();
-      expect(await screen.findByTestId('test-waypoint-2')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-1')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-2')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-0')).toHaveClass('c-map-pin');
+      expect(screen.getByTestId('test-waypoint-1')).toHaveClass('c-map-pin');
+      expect(screen.getByTestId('test-waypoint-2')).toHaveClass('c-map-pin');
     });
-    xit('waypoint with icon', () => {});
-    xit('waypoint with text', () => {});
-    xit('waypoint with html', () => {});
+
+    it('waypoint with icon', async () => {
+      renderMapComponent({waypoints: [{lat: 1, lng: 1, glyph: {icon: 'custom-icon custom-icon-home'}}]});
+
+      const waypoint = await screen.findByTestId('test-waypoint-0');
+
+      expect(waypoint.innerHTML).toContain('custom-icon');
+      expect(waypoint.innerHTML).toContain('custom-icon-home');
+    });
+    it('waypoint with text', async () => {
+      renderMapComponent({waypoints: [{lat: 1, lng: 1, glyph: {text: 'mockText'}}]});
+
+      expect(await screen.findByTestId('test-waypoint-0-text')).toBeInTheDocument();
+      expect(screen.getByTestId('test-waypoint-0-text')).toHaveClass('c-map-pin-text');
+      // TODO: check why it is rendered without text in the test
+    });
+    it('waypoint with html', async () => {
+      renderMapComponent({waypoints: [{lat: 1, lng: 1, glyph: {html: '<span>mockHtml</span>'}}]});
+
+      const waypoint = await screen.findByTestId('test-waypoint-0-html');
+
+      expect(waypoint.innerHTML).toContain('<span>mockHtml</span>');
+      expect(waypoint).toHaveClass('c-map-pin-html');
+    });
   });
 
-  xit('should show summaryTemplate', () => {});
+  xit('should show summaryTemplate', async () => {});
   xit('should fit to routes', () => {});
   xit('should change line styles', () => {});
 });

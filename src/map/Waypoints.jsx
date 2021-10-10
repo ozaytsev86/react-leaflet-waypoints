@@ -71,10 +71,14 @@ export const Waypoints = ({
           L.DomUtil.create('span', `c-map-pin-glyph ${glyph.icon}`, wrapper);
         } else if (glyph.text) {
           const content = L.DomUtil.create('span', 'c-map-pin-glyph c-map-pin-text', wrapper);
+          content.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}-text`);
+
           content.innerText = glyph.text;
           wrapper.appendChild(content);
         } else if (glyph.html) {
           const htmlWrapper = L.DomUtil.create('div', 'c-map-pin-html');
+          htmlWrapper.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}-html`);
+
           const content = new DOMParser().parseFromString(glyph.html, 'text/html').body.firstChild;
           htmlWrapper.appendChild(content);
           wrapper.appendChild(htmlWrapper);
