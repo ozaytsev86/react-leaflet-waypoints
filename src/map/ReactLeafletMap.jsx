@@ -1,5 +1,5 @@
 import './Leaflet.css';
-import './Map.css';
+import './ReactLeafletMap.css';
 
 import PropTypes from 'prop-types';
 import {MapContainer, TileLayer} from 'react-leaflet';
@@ -17,7 +17,7 @@ const propTypes = {
   loadingComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Text or component shown when no data was provided */
   noDataComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /** Map OSRM layer url */
+  /** ReactLeafletMap OSRM layer url */
   layerUrl: PropTypes.string,
   /** Coordinates to show points on the map */
   waypoints: PropTypes.arrayOf(
@@ -60,7 +60,7 @@ const defaultProps = {
   summaryTemplate: '',
 };
 
-const Map = ({
+const ReactLeafletMap = ({
               testId,
               loading,
               loadingComponent,
@@ -99,7 +99,7 @@ const Map = ({
   );
 };
 
-Map.propTypes = propTypes;
-Map.defaultProps = defaultProps;
+ReactLeafletMap.propTypes = propTypes;
+ReactLeafletMap.defaultProps = defaultProps;
 
-export {Map};
+export {ReactLeafletMap};

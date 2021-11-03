@@ -1,10 +1,10 @@
-import {Map} from './Map';
+import {ReactLeafletMap} from './ReactLeafletMap';
 import {screen, waitFor, render, within} from '@testing-library/react';
 
 
 describe('Map', () => {
   const MockedComponent = () => <div data-testid="mocked-component">MockedComponent</div>;
-  const renderMapComponent = (customProps) => render(<Map testId="test" {...customProps} />);
+  const renderMapComponent = (customProps) => render(<ReactLeafletMap testId="test" {...customProps} />);
 
   describe('should show no data', () => {
     it('default text', () => {

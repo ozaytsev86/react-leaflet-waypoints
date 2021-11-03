@@ -1,14 +1,14 @@
-import {Map} from './Map';
+import {ReactLeafletMap} from './ReactLeafletMap';
 import {newStory} from '../../.storybook/utils';
-import './MapStories.css';
+import './ReactLeafletMapStories.css';
 
 export default {
-  title: 'Components/Map',
-  component: Map,
+  title: 'Components/ReactLeafletMap',
+  component: ReactLeafletMap,
 };
 
 export const Custom = newStory({
-  Component: Map,
+  Component: ReactLeafletMap,
   args: {
     layerUrl: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     waypoints: [
@@ -62,13 +62,13 @@ export const Custom = newStory({
 });
 export const Minimal = () => (
   // eslint-disable-next-line react/react-in-jsx-scope
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196'}, {lat: '42.7576862', lng: '1.5082874'}]}
   />
 );
 export const WithoutFitRoutes = () => (
-  <Map
+  <ReactLeafletMap
     fitRoutes={false}
     testId="test"
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
@@ -76,19 +76,19 @@ export const WithoutFitRoutes = () => (
   />
 );
 export const WithIcon = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {icon: 'custom-icon custom-icon-home'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {icon: 'custom-icon custom-icon-marker'}}]}
   />
 );
 export const WithText = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {text: 'Me'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {text: 'Bob'}}]}
   />
 );
 export const WithHtml = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[
       {lat: '40.4381311', lng: '-3.8196196', glyph: {html: '<span style="background-color: deeppink; padding: 5px; color: white;">Me</span>'}},
@@ -97,7 +97,7 @@ export const WithHtml = () => (
   />
 );
 export const WithLineOptions = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[
       {lat: '40.4381311', lng: '-3.8196196', glyph: {html: '<span style="background-color: deeppink; padding: 5px; color: white;">Me</span>'}},
@@ -111,14 +111,14 @@ export const WithLineOptions = () => (
   />
 );
 export const WithClassName = () => (
-  <Map
+  <ReactLeafletMap
     className="custom-map"
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196'}, {lat: '42.7576862', lng: '1.5082874'}]}
   />
 );
 export const WithCustomPinClass = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {text: 'Me', className: 'custom-pin'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {text: 'Bob', className: 'custom-pin'}}]}
   />
@@ -137,25 +137,25 @@ const summaryTemplate = `
   </div>
 `;
 export const WithSummaryTemplate = () => (
-  <Map
+  <ReactLeafletMap
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {text: 'Me', className: 'custom-pin'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {text: 'Bob', className: 'custom-pin'}}]}
     summaryTemplate={summaryTemplate}
   />
 );
 
-export const DefaultLoading = () => <Map loading />;
-export const WithLoadingText = () => <Map loading loadingComponent="The map is loading..." />;
+export const DefaultLoading = () => <ReactLeafletMap loading />;
+export const WithLoadingText = () => <ReactLeafletMap loading loadingComponent="The map is loading..." />;
 export const WithLoadingComponent = () => (
-  <Map
+  <ReactLeafletMap
     loading
     loadingComponent={<div className="custom-loader" />}
   />
 );
-export const DefaultNoData = () => <Map waypoints={null} />;
-export const WithNoDataText = () => <Map waypoints={null} noDataComponent="No waypoints received"/>;
+export const DefaultNoData = () => <ReactLeafletMap waypoints={null} />;
+export const WithNoDataText = () => <ReactLeafletMap waypoints={null} noDataComponent="No waypoints received"/>;
 export const WithNoDataComponent = () => (
-  <Map
+  <ReactLeafletMap
     waypoints={null}
     noDataComponent={<p className="custom-no-data">Oops! No waypoints received</p>}
   />
