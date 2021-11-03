@@ -1,1 +1,1 @@
-export {Map} from './map/Map';
+export {ReactLeafletMap} from './map/ReactLeafletMap';

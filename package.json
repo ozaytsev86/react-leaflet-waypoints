@@ -1,7 +1,7 @@
 {
   "name": "react-leaflet-waypoints",
   "version": "1.0.0",
-  "description": "React library to show waypoints on the Leaflet map",
+  "description": "React component to show waypoints on the Leaflet map",
   "main": "build/index.js",
   "keywords": [
     "react-component",
@@ -11,6 +11,14 @@
   ],
   "author": "Olek Zaytsev",
   "license": "MIT",
+  "homepage": "https://github.com/ozaytsev86/react-leaflet-waypoints.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monatheoctocat/my_package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozaytsev86/react-leaflet-waypoints/issues"
+  },
   "scripts": {
     "sb": "start-storybook --quiet -p 9002 -c .storybook --no-manager-cache",
     "prettify": "prettier --write src/",
@@ -56,8 +64,6 @@
     "ignore-styles": "^5.0.1",
     "jest": "^26.6.3",
     "jsdom": "^16.5.2",
-    "leaflet": "^1.7.1",
-    "leaflet-routing-machine": "^3.2.12",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
     "path": "^0.12.7",
@@ -65,18 +71,14 @@
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-leaflet": "^3.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-node-externals": "^2.5.2"
   },
-  "peerDependencies": {
+  "dependencies": {
     "leaflet": "^1.7.1",
     "leaflet-routing-machine": "^3.2.12",
-    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.2.1"

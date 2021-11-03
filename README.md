@@ -30,9 +30,7 @@ yarn sb / npm run sb
 ```
 
 # Roadmap
-- Make it work in another project importing it as a library. Take a look on [react-leaflet-waypoints-test](https://github.com/ozaytsev86/react-leaflet-waypoints-test)  
-- Finish all the tests  
-- Publish the package in npm
+WIP
 
 # Issues
 If you found an issue, or you have a suggestion please create a ticket [here](https://github.com/ozaytsev86/react-leaflet-waypoints/issues)
