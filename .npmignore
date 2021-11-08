@@ -17,6 +17,7 @@ tests
 nyc.config.js
 rlw-screenshot.png
 webpack.config.js
+CHANGELOG.md
 yarn.lock
 build/map/ReactLeafletWaypoints.stories.js
 build/map/ReactLeafletWaypoints.test.js

@@ -1,5 +1,8 @@
 # react-leaflet-waypoints
 
+## 0.1.2
+- remove babel-cli and babel-node dependencies
+
 ## 0.1.1
 - add change log
 - Fix: readme usage example
