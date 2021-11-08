@@ -10,6 +10,22 @@ Install `react-leaflet-waypoints` with [npm](https://www.npmjs.com/):
 or  
 `yarn add react-leaflet-waypoints`
 
+# Usage
+
+```javascript
+import {ReactLeafletMap} from 'react-leaflet-waypoints';
+
+export const MyComponent = () => {
+  return (
+    <ReactLeafletMap
+      layerUrl="https://layer-url/image.png"
+      waypoints={[{lat: '40.4381311', lng: '-3.8196196'}, {lat: '42.7576862', lng: '1.5082874'}]}
+    />
+  );
+}
+```
+
+
 # Demo
 At the moment there is no live demo, but you can easily check the Storybook in your local.
 
