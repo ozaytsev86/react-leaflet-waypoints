@@ -1,7 +1,7 @@
 # react-leaflet-waypoints
 React component to show waypoints on Leaflet's map.
 
-![Screenshot](rlw-screenshot.png)
+![Screenshot](https://github.com/ozaytsev86/react-leaflet-waypoints/blob/main/rlw-screenshot.png?raw=true)
 
 # Installation
 Install `react-leaflet-waypoints` with [npm](https://www.npmjs.com/):
