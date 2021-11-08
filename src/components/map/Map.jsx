@@ -60,7 +60,7 @@ const defaultProps = {
   summaryTemplate: '',
 };
 
-export const ReactLeafletWaypoints = ({
+const Map = ({
               testId,
               loading,
               loadingComponent,
@@ -99,5 +99,7 @@ export const ReactLeafletWaypoints = ({
   );
 };
 
-ReactLeafletWaypoints.propTypes = propTypes;
-ReactLeafletWaypoints.defaultProps = defaultProps;
+Map.propTypes = propTypes;
+Map.defaultProps = defaultProps;
+
+export {Map as ReactLeafletWaypoints};
