@@ -1,5 +1,9 @@
 # react-leaflet-waypoints
 
+## 0.1.7
+- Fix: export again
+- remove babel-cli and babel-node dependencies
+
 ## 0.1.4
 - Fix: export ReactLeafletWaypoints
 
