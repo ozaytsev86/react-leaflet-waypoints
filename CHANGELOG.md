@@ -1,5 +1,8 @@
 # react-leaflet-waypoints
 
+## 0.1.3
+- undo remove babel-cli and babel-node dependencies
+
 ## 0.1.2
 - remove babel-cli and babel-node dependencies
 
