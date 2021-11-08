@@ -4,8 +4,8 @@ module.exports = {
     '.babelrc.js',
     'src/index.js',
     'src/map/Icon.js',
-    'src/map/ReactLeafletMap.stories.js',
-    'src/map/ReactLeafletMap.test.jsx',
+    'src/map/ReactLeafletWaypoints.stories.js',
+    'src/map/ReactLeafletWaypoints.test.jsx',
     '.storybook',
   ],
 };

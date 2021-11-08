@@ -1,0 +1,16 @@
+.leaflet-bottom .leaflet-right {
+    display: none;
+}
+/* Button and texts color */
+.leaflet-routing-alt,
+.leaflet-bar a {
+    color: var(--rlw-pin-color-1);
+}
+.leaflet-routing-alt {
+    padding: var(--rlw-padding-1) var(--rlw-padding-2);
+    background-color: white;
+}
+.leaflet-routing-alt-minimized,
+.leaflet-routing-alt table {
+    display: none;
+}

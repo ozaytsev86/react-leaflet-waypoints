@@ -1,10 +1,10 @@
-import './Leaflet.css';
-import './ReactLeafletMap.css';
+import '../../styles/index.css';
+import './map.css';
 
 import PropTypes from 'prop-types';
 import {MapContainer, TileLayer} from 'react-leaflet';
 
-import {Waypoints} from './Waypoints';
+import {Waypoints} from '../Waypoints';
 
 const propTypes = {
   /** Id for test purposes*/
@@ -17,7 +17,7 @@ const propTypes = {
   loadingComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Text or component shown when no data was provided */
   noDataComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  /** ReactLeafletMap OSRM layer url */
+  /** Map OSRM layer url */
   layerUrl: PropTypes.string,
   /** Coordinates to show points on the map */
   waypoints: PropTypes.arrayOf(
@@ -60,7 +60,7 @@ const defaultProps = {
   summaryTemplate: '',
 };
 
-const ReactLeafletMap = ({
+const Map = ({
               testId,
               loading,
               loadingComponent,
@@ -74,13 +74,13 @@ const ReactLeafletMap = ({
   if(loading) {
     return (
       typeof loadingComponent === 'string'
-        ? <p data-testid={`${testId}-loading`} className="c-map-feedback-wrapper">{loadingComponent}</p>
+        ? <p data-testid={`${testId}-loading`} className="rlw-feedback-wrapper">{loadingComponent}</p>
         : loadingComponent
     );
   }
 
   return (
-    <div className={`c-map ${summaryTemplate === '' ? 'c-map-summary--hidden' : ''} ${className}`} data-testid={`${testId}-map`}>
+    <div className={`rlw ${summaryTemplate === '' ? 'rlw-summary--hidden' : ''} ${className}`} data-testid={`${testId}-map`}>
       {waypoints ? (
         <MapContainer
           style={{height: '100%', width: '100%'}}
@@ -92,14 +92,14 @@ const ReactLeafletMap = ({
         </MapContainer>
       ) : (
         typeof noDataComponent === 'string'
-          ? <p data-testid={`${testId}-no-data`} className="c-map-feedback-wrapper">{noDataComponent}</p>
+          ? <p data-testid={`${testId}-no-data`} className="rlw-feedback-wrapper">{noDataComponent}</p>
           : noDataComponent
       )}
     </div>
   );
 };
 
-ReactLeafletMap.propTypes = propTypes;
-ReactLeafletMap.defaultProps = defaultProps;
+Map.propTypes = propTypes;
+Map.defaultProps = defaultProps;
 
-export {ReactLeafletMap};
+export {Map as ReactLeafletWaypoints};

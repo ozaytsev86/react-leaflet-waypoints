@@ -61,29 +61,29 @@ export const Waypoints = ({
 
   L.Icon.Glyph = L.Icon.extend({
     createIcon: function () {
-      const wrapper = L.DomUtil.create('div', `c-map-pin ${this.options.glyph?.className || ''}`);
+      const wrapper = L.DomUtil.create('div', `rlw-pin ${this.options.glyph?.className || ''}`);
       wrapper.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}`);
 
       if (this.options.glyph) {
         const glyph = this.options.glyph;
 
         if (glyph.icon) {
-          L.DomUtil.create('span', `c-map-pin-glyph ${glyph.icon}`, wrapper);
+          L.DomUtil.create('span', `rlw-pin-glyph ${glyph.icon}`, wrapper);
         } else if (glyph.text) {
-          const content = L.DomUtil.create('span', 'c-map-pin-glyph c-map-pin-text', wrapper);
+          const content = L.DomUtil.create('span', 'rlw-pin-glyph rlw-pin-text', wrapper);
           content.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}-text`);
 
           content.innerText = glyph.text;
           wrapper.appendChild(content);
         } else if (glyph.html) {
-          const htmlWrapper = L.DomUtil.create('div', 'c-map-pin-html');
+          const htmlWrapper = L.DomUtil.create('div', 'rlw-pin-html');
           htmlWrapper.setAttribute('data-testid', `${testId}-waypoint-${this.options.index}-html`);
 
           const content = new DOMParser().parseFromString(glyph.html, 'text/html').body.firstChild;
           htmlWrapper.appendChild(content);
           wrapper.appendChild(htmlWrapper);
         } else {
-          L.DomUtil.create('span', 'c-map-pin-empty', wrapper);
+          L.DomUtil.create('span', 'rlw-pin-empty', wrapper);
         }
       }
 

@@ -48,7 +48,7 @@ L.Icon.Glyph = L.Icon.extend({
     }
 
     var span = L.DomUtil.create('span', options.prefix + ' ' + glyphClass);
-    span.className = 'c-map-pin-text';
+    span.className = 'rlw-pin-text';
 
     if (textContent) {
       span.innerHTML = textContent;

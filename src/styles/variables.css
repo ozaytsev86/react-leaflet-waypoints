@@ -1,0 +1,9 @@
+:root {
+    --rlw-padding-1: 4px;
+    --rlw-padding-2: 8px;
+    --rlw-text-color: #515055;
+    --rlw-feedback-border-color: #dde0e2;
+    --rlw-pin-color-1: #515055;
+    --rlw-pin-color-2: white;
+    --rlw-pin-border-radius: 12px;
+}

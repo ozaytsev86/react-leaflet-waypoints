@@ -18,6 +18,6 @@ nyc.config.js
 rlw-screenshot.png
 webpack.config.js
 yarn.lock
-build/map/ReactLeafletMap.stories.js
-build/map/ReactLeafletMap.test.js
+build/map/ReactLeafletWaypoints.stories.js
+build/map/ReactLeafletWaypoints.test.js
 build/map/ReactLeafletMapStories.css

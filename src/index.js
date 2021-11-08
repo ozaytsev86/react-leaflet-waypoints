@@ -1,1 +1,1 @@
-export {ReactLeafletMap} from './map/ReactLeafletMap';
+export {ReactLeafletWaypoints} from './components/map/Map';
