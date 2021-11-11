@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-waypoints",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "React component to show waypoints on the Leaflet map",
   "main": "build/index.js",
   "keywords": [
@@ -11,10 +11,10 @@
   ],
   "author": "Olek Zaytsev",
   "license": "MIT",
-  "homepage": "https://github.com/ozaytsev86/react-leaflet-waypoints.git",
+  "homepage": "https://github.com/ozaytsev86/react-leaflet-waypoints",
   "repository": {
     "type": "git",
-    "url": "https://github.com/monatheoctocat/my_package.git"
+    "url": "https://github.com/ozaytsev86/react-leaflet-waypoints.git"
   },
   "bugs": {
     "url": "https://github.com/ozaytsev86/react-leaflet-waypoints/issues"
