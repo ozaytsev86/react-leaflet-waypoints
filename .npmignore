@@ -19,6 +19,7 @@ rlw-screenshot.png
 webpack.config.js
 CHANGELOG.md
 yarn.lock
+.github
 build/map/ReactLeafletWaypoints.stories.js
 build/map/ReactLeafletWaypoints.test.js
 build/map/ReactLeafletMapStories.css
