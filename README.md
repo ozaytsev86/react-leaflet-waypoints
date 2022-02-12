@@ -28,7 +28,7 @@ export const MyComponent = () => {
 
 # Demo
 
-[Storybook Live Demo](https://www.chromatic.com/library?appId=61b5bfcdbf0a96003acf004d)  
+[Storybook Live Demo](https://61b5bfcdbf0a96003acf004d-ibwoiilpin.chromatic.com/?path=/story/components-reactleafletwaypoints--custom)  
 
 You can easily check the Storybook in your local.
 
