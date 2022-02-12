@@ -1,5 +1,10 @@
 # react-leaflet-waypoints
 
+## 0.1.9
+- Fix: storybook story
+- integrate Chromatic
+- update README with Storybook demo link
+
 ## 0.1.7
 - Fix: export ReactLeafletWaypoints
 - remove babel-cli and babel-node dependencies
