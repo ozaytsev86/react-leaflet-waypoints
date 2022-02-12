@@ -1,5 +1,4 @@
 import {ReactLeafletWaypoints} from './Map';
-import {newStory} from '../../../.storybook/utils';
 import './map-stories.css';
 
 export default {
@@ -7,61 +6,60 @@ export default {
   component: ReactLeafletWaypoints,
 };
 
-export const Custom = newStory({
-  Component: ReactLeafletWaypoints,
-  args: {
-    layerUrl: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    waypoints: [
-      {
-        lat: '41.7576862',
-        lng: '1.5082874',
-        glyph: {
-          icon: 'custom-icon custom-icon-home'
-        }
-      }, {
-        lat: '42.7576862',
-        lng: '1.5082874',
-        glyph: {
-          html: '<span style="background-color: #f15b6c; padding: 4px; color: #fefdef; white-space: nowrap; border-radius: 8px 0; border: 2px solid #605f64">First Stop</span>',
-        }
-      }, {
-        lat: '43.7576862',
-        lng: '1',
-        glyph: {
-          html: '<span style="background-color: #f15b6c; padding: 4px; color: #fefdef; white-space: nowrap; border-radius: 8px 0; border: 2px solid #605f64">Second Stop</span>',
-        }
-      },
-      {
-        lat: '44.7576862',
-        lng: '1',
-        glyph: {
-          icon: 'custom-icon custom-icon-marker'
-        }
-      }
-    ],
-    lineOptions: {
-      styles: [
-        {color: '#605f64', opacity: 0.15, weight: 7},
-        {color: '#fff', opacity: 0.8, weight: 5},
-        {color: '#605f64', opacity: 1, weight: 2},
-      ]
-    },
-    summaryTemplate: `
+const waypoints = [
+  {
+    lat: '41.7576862',
+    lng: '1.5082874',
+    glyph: {
+      icon: 'custom-icon custom-icon-home'
+    }
+  }, {
+    lat: '42.7576862',
+    lng: '1.5082874',
+    glyph: {
+      html: '<span style="background-color: #f15b6c; padding: 4px; color: #fefdef; white-space: nowrap; border-radius: 8px 0; border: 2px solid #605f64">First Stop</span>',
+    }
+  }, {
+    lat: '43.7576862',
+    lng: '1',
+    glyph: {
+      html: '<span style="background-color: #f15b6c; padding: 4px; color: #fefdef; white-space: nowrap; border-radius: 8px 0; border: 2px solid #605f64">Second Stop</span>',
+    }
+  },
+  {
+    lat: '44.7576862',
+    lng: '1',
+    glyph: {
+      icon: 'custom-icon custom-icon-marker'
+    }
+  }
+]
+
+export const Custom = () => (
+  <ReactLeafletWaypoints
+    layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+    waypoints={waypoints}
+    lineOptions={{styles: [
+      {color: '#605f64', opacity: 0.15, weight: 7},
+      {color: '#fff', opacity: 0.8, weight: 5},
+      {color: '#605f64', opacity: 1, weight: 2},
+    ]}}
+    summaryTemplate={`
       <div>
         <p style="margin: 0">
           <span style="font-weight: bold">Distance: </span>
           <span>{distance}</span>
         </p>
         <p style="margin: 0">
-          <span style="font-weight: bold">Time: </span>
-          <span>{time}</span>
+        <span style="font-weight: bold">Time: </span>
+        <span>{time}</span>
         </p>
       </div>
-    `,
-  }
-});
+    `}
+  />
+);
+
 export const Minimal = () => (
-  // eslint-disable-next-line react/react-in-jsx-scope
   <ReactLeafletWaypoints
     layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
     waypoints={[{lat: '40.4381311', lng: '-3.8196196'}, {lat: '42.7576862', lng: '1.5082874'}]}

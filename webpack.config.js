@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.js',
   externals: [nodeExternals()],
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     library: {
       name: 'rlw',
