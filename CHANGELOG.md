@@ -1,5 +1,11 @@
 # react-leaflet-waypoints
 
+## 0.1.11
+- Fix: last broken published package
+
+## 0.1.10
+##### Broken, don't install :)
+
 ## 0.1.9
 - Fix: storybook story
 - integrate Chromatic
