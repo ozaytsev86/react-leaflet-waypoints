@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-waypoints",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "React component to show waypoints on the Leaflet map",
   "main": "dist/index.js",
   "keywords": [
