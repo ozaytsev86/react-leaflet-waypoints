@@ -144,17 +144,15 @@ export const WithSummaryTemplate = () => (
 
 export const DefaultLoading = () => <ReactLeafletWaypoints loading />;
 export const WithLoadingText = () => <ReactLeafletWaypoints loading loadingComponent="The map is loading..." />;
-export const WithLoadingComponent = () => (
+export const WithLoadingComponent = () => (<ReactLeafletWaypoints loading loadingComponent={<div className="custom-loader" />} />);
+export const DefaultNoData = () => <ReactLeafletWaypoints/>;
+export const WithNoDataText = () => <ReactLeafletWaypoints noDataComponent="No waypoints received"/>;
+export const WithNoDataComponent = () => (<ReactLeafletWaypoints noDataComponent={<p className="custom-no-data">Oops! No waypoints received</p>} />);
+export const WithOnSummaryCalculated = () => (
   <ReactLeafletWaypoints
-    loading
-    loadingComponent={<div className="custom-loader" />}
-  />
-);
-export const DefaultNoData = () => <ReactLeafletWaypoints waypoints={null} />;
-export const WithNoDataText = () => <ReactLeafletWaypoints waypoints={null} noDataComponent="No waypoints received"/>;
-export const WithNoDataComponent = () => (
-  <ReactLeafletWaypoints
-    waypoints={null}
+    layerUrl="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+    waypoints={[{lat: '40.4381311', lng: '-3.8196196', glyph: {text: 'Me', className: 'custom-pin'}}, {lat: '42.7576862', lng: '1.5082874', glyph: {text: 'Bob', className: 'custom-pin'}}]}
+    onSummaryCalculated={(summary) => alert(`totalDistance: ${summary.totalDistance}, totalTime: ${summary.totalTime}`)}
     noDataComponent={<p className="custom-no-data">Oops! No waypoints received</p>}
   />
 );

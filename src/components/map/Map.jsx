@@ -47,6 +47,7 @@ const propTypes = {
       weight: PropTypes.number,
     }))
   }),
+  onSummaryCalculated: PropTypes.func,
 };
 
 const defaultProps = {
