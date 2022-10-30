@@ -1,26 +1,40 @@
 # react-leaflet-waypoints
 
-## 0.1.11
-- Fix: last broken published package
+## 1.0.0
+### Breaking Changes
+- Drop support for React 17 and earlier.
+- Updated dependencies some of them dropped support for React 17.
 
-## 0.1.10
+## 0.1.15
+#### Fixed
+- Problem with published version without `dist` folder. This version it she same as 0.1.7
+
+## 0.1.10 - 0.1.14
 ##### Broken, don't install :)
 
 ## 0.1.9
-- Fix: storybook story
-- integrate Chromatic
-- update README with Storybook demo link
+#### Fixed
+- Storybook story
+#### Added
+- Integration of Chromatic
+- Storybook demo link to the readme
 
 ## 0.1.7
-- Fix: export ReactLeafletWaypoints
-- remove babel-cli and babel-node dependencies
+#### Fixed
+- Export ReactLeafletWaypoints
+#### Removed
+- babel-cli and babel-node dependencies
 
 ## 0.1.1
-- add change log
-- Fix: readme usage example
+#### Added
+- Change log
+#### Fixed
+- readme usage example
 
 ## 0.1.0
-- Refactor: change folder structure and component import from `Map` to `ReactLeafletWaypoints`
+#### Changed
+- Folder structure and component import from `Map` to `ReactLeafletWaypoints`
 
 ## 0.0.0
-- initial release
+#### Added
+- First release
