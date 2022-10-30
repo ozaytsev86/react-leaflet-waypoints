@@ -3,6 +3,5 @@ coverage
 node_modules
 yarn.lock
 build
-dist
 TODO.md
 /build-storybook.log
