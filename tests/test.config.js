@@ -2,7 +2,7 @@
 
 // Expect
 const extendExpectMatchers = require('@testing-library/jest-dom/dist/matchers');
-const expect = require('expect');
+const {expect} = require('expect');
 
 // Extend our expect with @testing-library/jest-dom
 expect.extend(extendExpectMatchers);

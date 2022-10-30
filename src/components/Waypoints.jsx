@@ -99,7 +99,7 @@ export const Waypoints = React.memo(({
     return new L.Icon.Glyph(options);
   };
 
-  const control = L.Routing.control({
+  const control = React.useRef(L.Routing.control({
     showAlternatives: false,
     summaryTemplate,
     show: false,
@@ -113,23 +113,25 @@ export const Waypoints = React.memo(({
         });
       },
     }),
-  });
+  }));
 
   React.useEffect(() => {
     const container = context.layerContainer || context.map;
 
-    control.on('routesfound', (e) => {
-      const {routes} = e;
-      const {summary} = routes[0];
-      onSummaryCalculated && onSummaryCalculated(summary);
-    });
+    if(onSummaryCalculated) {
+      control.current.on('routesfound', (e) => {
+        const {routes} = e;
+        const {summary} = routes[0];
+        onSummaryCalculated(summary);
+      });
+    }
 
-    container.addControl(control);
+    container.addControl(control.current);
 
     return () => {
-      container.removeControl(control);
+      container.removeControl(control.current);
     };
-  });
+  }, []);
 
   return null;
 });
