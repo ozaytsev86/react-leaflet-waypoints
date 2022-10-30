@@ -1,5 +1,12 @@
 # react-leaflet-waypoints
 
+## 1.1.0
+#### Added
+- React.memo for waypoints to avoid unnecessary renders
+- Optional `onSummaryCalculated` callback which returns `{totalDistance: number, totalTime: number}`
+#### Fixed
+- Infinite renders on load map
+
 ## 1.0.0
 ### Breaking Changes
 - Drop support for React 17 and earlier.

@@ -1,6 +1,6 @@
 import {ReactLeafletWaypoints} from './Map';
-import {screen, render} from '@testing-library/react';
-
+import {screen, render, waitFor} from '@testing-library/react';
+import sinon from 'sinon';
 
 describe('ReactLeafletWaypoints', () => {
   const MockedComponent = () => <div data-testid="mocked-component">MockedComponent</div>;
@@ -90,6 +90,15 @@ describe('ReactLeafletWaypoints', () => {
       expect(waypoint).toHaveClass('rlw-pin-html');
     });
   });
+
+  xit('should call onSummaryCalculated with {totalDistance: 0, totalTime: 0}', async () => {
+    const onSummaryCalculatedMock = sinon.spy();
+    renderMapComponent({waypoints: [{lat: 1, lng: 1}, {lat: 1.1, lng: 1.1}], onSummaryCalculated: onSummaryCalculatedMock});
+
+    expect(await screen.findByTestId('test-waypoint-0')).toBeInTheDocument();
+
+    await waitFor(() => sinon.assert.calledOnce(onSummaryCalculatedMock, {totalDistance: 0, totalTime: 0}));
+  })
 
   xit('should show summaryTemplate', async () => {});
   xit('should fit to routes', () => {});

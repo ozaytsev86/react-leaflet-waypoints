@@ -34,13 +34,15 @@ const propTypes = {
       opacity: PropTypes.number,
       weight: PropTypes.number,
     }))
-  })
+  }),
+  onSummaryCalculated: PropTypes.func,
 };
 
 const defaultProps = {
   testId: 'component',
   fitRoutes: true,
   summaryTemplate: '',
+  waypoints: null,
   lineOptions: {
     styles: [
       {color: '#65803c', opacity: 0.15, weight: 7},
@@ -48,14 +50,16 @@ const defaultProps = {
       {color: '#8ebf42', opacity: 1, weight: 2},
     ],
   },
+  onSummaryCalculated: null,
 };
 
-export const Waypoints = ({
-                            testId,
-                            waypoints,
-                            summaryTemplate,
-                            lineOptions,
-                            fitRoutes,
+export const Waypoints = React.memo(({
+  testId,
+  waypoints,
+  summaryTemplate,
+  lineOptions,
+  fitRoutes,
+  onSummaryCalculated,
 }) => {
   const context = useLeafletContext();
 
@@ -95,7 +99,7 @@ export const Waypoints = ({
     return new L.Icon.Glyph(options);
   };
 
-  const control = L.Routing.control({
+  const control = React.useRef(L.Routing.control({
     showAlternatives: false,
     summaryTemplate,
     show: false,
@@ -109,20 +113,28 @@ export const Waypoints = ({
         });
       },
     }),
-  });
+  }));
 
   React.useEffect(() => {
     const container = context.layerContainer || context.map;
 
-    container.addControl(control);
+    if(onSummaryCalculated) {
+      control.current.on('routesfound', (e) => {
+        const {routes} = e;
+        const {summary} = routes[0];
+        onSummaryCalculated(summary);
+      });
+    }
+
+    container.addControl(control.current);
 
     return () => {
-      container.removeControl(control);
+      container.removeControl(control.current);
     };
-  });
+  }, []);
 
   return null;
-};
+});
 
 Waypoints.propTypes = propTypes;
 Waypoints.defaultProps = defaultProps;

@@ -7,5 +7,6 @@ module.exports = {
     'src/map/ReactLeafletWaypoints.stories.js',
     'src/map/ReactLeafletWaypoints.test.jsx',
     '.storybook',
+    'dist'
   ],
 };
